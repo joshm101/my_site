@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactSwipe from 'react-swipe';
-import BulletList from '../BulletList/BulletList.jsx';
 
 
 
