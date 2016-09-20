@@ -51,16 +51,15 @@ class Core extends React.Component {
 
     return (<MuiThemeProvider>
               <div>
-              <div style={workStyle}>
-                <WorkItem work={workArr[0]}>
-                </WorkItem>
+                <div style={workStyle}>
+                  <WorkItem work={workArr[0]} />
+                </div>
+                <div style={workStyle}>
+                  <WorkItem work={workArr[1]} />
+                </div>
               </div>
-              <div style={workStyle}>
-                <WorkItem work={workArr[1]}>
-                </WorkItem>
-              </div>
-              </div>
-            </MuiThemeProvider>);
+            </MuiThemeProvider>
+           );
   }
 }
 
