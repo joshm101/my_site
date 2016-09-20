@@ -62,8 +62,8 @@ export default class WorkItem extends React.Component {
     
     var shortDescTh = 95;
     
-    // this piece of code creates a short description with a trailing ellipsis
-    // if the length of the description is more than 95 characters
+    // This piece of code creates a short description with a trailing ellipsis
+    // if the length of the description is more than 95 characters.
     // 95 is chosen because that is around the end of the third line
     // in our workitem card, so there is a good chance we will need
     // a fourth line in our description, justifying "show more" even
