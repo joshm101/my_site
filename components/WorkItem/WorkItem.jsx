@@ -39,24 +39,32 @@ export default class WorkItem extends React.Component {
       position: "relative",
       marginLeft: "auto",
       marginRight: "auto",
-      minHeight: "350px"
+      minHeight: "350px",
+      backgroundColor: "#424242"
     };
     
     var fabStyle = {
       position: "absolute",
       right: "10px",
       top: "123px",
-      zIndex: "10000"
+      zIndex: "10000",
+      backgroundColor: "#004D40"
     }
     
     var showStyle = {
       marginLeft: "25%",
-      marginRight: "25%"
+      marginRight: "25%",
+      color: "white"
     };
     
     var cardTextStyle = {
-      padding: "10px"
+      padding: "10px",
+      color: "white"
     }
+    
+    var textColor = {
+      color: "white"
+    };
     
     var shortDescription = "";
     
@@ -106,11 +114,11 @@ export default class WorkItem extends React.Component {
         <FloatingActionButton style={fabStyle}
                               zDepth={3}
                               mini={true}
-                              backgroundColor="#009688"
+                              backgroundColor="#00695C"
                               onTouchTap={this.navigateTo.bind(this)}>
           <NavigationArrowForward />
         </FloatingActionButton>
-        <CardTitle title={this.props.work.title} />
+        <CardTitle className={"cardTitle"} style={textColor} title={this.props.work.title} />
           {this.state.longDesc === true ?
             // we have a long description so make use
             // of short description and full description

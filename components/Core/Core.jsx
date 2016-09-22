@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {StyleRoot} from 'radium';
+import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
+import Index from '../Index/Index.jsx';
 import WorkItem from '../WorkItem/WorkItem.jsx';
 import ImageSlideshow from '../ImageSlideshow/ImageSlideshow.jsx';
 import MuiThemeProvider from '../../node_modules/material-ui/styles/MuiThemeProvider';
@@ -18,6 +21,10 @@ class Core extends React.Component {
       marginTop: "20px"
     };
     
+    var generalPageStyle = {
+      height: "100%"
+    }
+    
     var workArr = [{
                     title: "Blackwashed.com",
                     description: "Portfolio for photo albums and videos. Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -25,10 +32,10 @@ class Core extends React.Component {
                               {img_src: "../../assets/img/blackwashedcom.PNG",
                                key: "0",
                                current: 'true'},
-                              {img_src: "../../assets/img/blackwashedcom2.PNG",
+                              {img_src: "../../assets/img/blackwashedcom3.PNG",
                                key: "1",
                                current: 'false'},
-                              {img_src: "../../assets/img/blackwashedcom3.PNG",
+                              {img_src: "../../assets/img/blackwashedcom2.PNG",
                                key: "2",
                                current: 'false'}
                               ],
@@ -49,16 +56,27 @@ class Core extends React.Component {
                     }
                   ];
 
-    return (<MuiThemeProvider>
-              <div>
-                <div style={workStyle}>
-                  <WorkItem work={workArr[0]} />
+    return (
+            <StyleRoot style={generalPageStyle}>
+              <MuiThemeProvider>
+                <div style={generalPageStyle}>
+                  <Index />
+              {/*
+                  <div style={workStyle}>
+                    <WorkItem work={workArr[0]} />
+                  </div>
+                  <div style={workStyle}>
+                    <WorkItem work={workArr[1]} />
+                  </div>  */}
+
+
+
+
+
+
                 </div>
-                <div style={workStyle}>
-                  <WorkItem work={workArr[1]} />
-                </div>
-              </div>
-            </MuiThemeProvider>
+              </MuiThemeProvider>
+            </StyleRoot>
            );
   }
 }
