@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import Radium from 'radium';
 import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import NavTabs from '../NavTabs/NavTabs';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 
 export default class Index extends React.Component {
@@ -11,11 +13,12 @@ export default class Index extends React.Component {
     var landingBannerStyle = {
       backgroundColor: "#212121",
       width: "100%",
-      height: "50%",
+      height: "25%",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      position: "relative"
+      position: "relative",
+      boxShadow: "rgba(0, 0, 0, 0.117647) 0px 1px -6px, rgba(0, 0, 0, 0.117647) 0px 1px -4px"
     };
     
     var logoNameStyle = {
@@ -40,7 +43,8 @@ export default class Index extends React.Component {
     var logoSpanWrap = {
       margin: "auto",
       textAlign: "center",
-      verticalAlign: "middle"
+      verticalAlign: "middle",
+      overflow: "overlay"
 
     };
     
@@ -54,7 +58,7 @@ export default class Index extends React.Component {
       width: "100%",
       float: "left",
       left: "0",
-      right: "0"
+      right: "0",
     };
     
     var CardTextCompStyle = {
@@ -64,8 +68,8 @@ export default class Index extends React.Component {
     return(
       <div style={{height: "100%"}}>
         <Card style={landingBannerStyle}>
-          <CardText>  
-            <div style={logoSpanWrap}>
+          <CardText style={logoSpanWrap}>
+            <div>
               <span style={logoNameStyle}>
                 Joshua Mora
               </span>     
@@ -75,10 +79,10 @@ export default class Index extends React.Component {
             </div>   
             <div style={socialMediaLinksStyle}>
               <SocialMediaLinks />
-            </div>                
+            </div>
           </CardText>
         </Card>
-        <RaisedButton label="Projects" style={{marginTop: "10px"}} />
+        <NavTabs />
       </div>
     );
   }

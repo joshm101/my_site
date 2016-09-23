@@ -21,7 +21,9 @@ class SocialMediaLinks extends React.Component {
     var ulStyle = {
       listStyle: "none",
       paddingLeft: "0",
-      display: "inline-block"
+      display: "inline-block",
+      marginTop: "0",
+      marginBottom: "0"
     }
     var liStyle = {
       float: "left"
