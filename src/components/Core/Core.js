@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {StyleRoot} from 'radium';
-import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
-import Index from '../Index/Index.jsx';
-import WorkItem from '../WorkItem/WorkItem.jsx';
-import ImageSlideshow from '../ImageSlideshow/ImageSlideshow.jsx';
-import MuiThemeProvider from '../../node_modules/material-ui/styles/MuiThemeProvider';
-import Hello from '../../hello.jsx';
+import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks';
+import Index from '../Index/Index';
+import WorkItem from '../WorkItem/WorkItem';
+import ImageSlideshow from '../ImageSlideshow/ImageSlideshow';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 
 
 
-class Core extends React.Component {
+export default class Core extends React.Component {
   render() {
     var workStyle = {
       marginLeft: "auto",
@@ -68,17 +67,9 @@ class Core extends React.Component {
                   <div style={workStyle}>
                     <WorkItem work={workArr[1]} />
                   </div>  */}
-
-
-
-
-
-
                 </div>
               </MuiThemeProvider>
             </StyleRoot>
-           );
+           )
   }
 }
-
-ReactDOM.render(<Core/>, document.getElementById("core"));

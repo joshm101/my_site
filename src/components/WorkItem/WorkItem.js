@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Toggle from 'material-ui/Toggle';
 import NavigationArrowForward from 'material-ui/svg-icons/navigation/arrow-forward';
-import ImageSlideshow from '../ImageSlideshow/ImageSlideshow.jsx'
+import ImageSlideshow from '../ImageSlideshow/ImageSlideshow'
 
 export default class WorkItem extends React.Component {
   constructor(props) {

@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Radium from 'radium';
-import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
+import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 export default class Index extends React.Component {
   render() {
@@ -48,9 +50,7 @@ export default class Index extends React.Component {
     }
     
     var socialMediaLinksStyle = {
-      position: "absolute",
       textAlign: "center",
-      bottom: "0",
       width: "100%",
       float: "left",
       left: "0",
@@ -62,21 +62,24 @@ export default class Index extends React.Component {
     }
     
     return(
-      <Card style={landingBannerStyle}>
-        <CardText>  
-          <div style={logoSpanWrap}>
-            <span style={logoNameStyle}>
-              Joshua Mora
-            </span>     
-          </div>
-          <div style={subtitleStyle}>
-            <span>Developer &nbsp;/&nbsp; Producer</span>
-          </div>   
-          <div style={socialMediaLinksStyle}>
-            <SocialMediaLinks />
-          </div>                
-        </CardText>
-      </Card>
+      <div style={{height: "100%"}}>
+        <Card style={landingBannerStyle}>
+          <CardText>  
+            <div style={logoSpanWrap}>
+              <span style={logoNameStyle}>
+                Joshua Mora
+              </span>     
+            </div>
+            <div style={subtitleStyle}>
+              <span>Developer &nbsp;/&nbsp; Producer</span>
+            </div>   
+            <div style={socialMediaLinksStyle}>
+              <SocialMediaLinks />
+            </div>                
+          </CardText>
+        </Card>
+        <RaisedButton label="Projects" style={{marginTop: "10px"}} />
+      </div>
     );
   }
 }
