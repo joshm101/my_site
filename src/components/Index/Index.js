@@ -10,6 +10,15 @@ import FlatButton from 'material-ui/FlatButton';
 
 export default class Index extends React.Component {
   render() {
+    console.log("this.props Index: ", this.props);
+    var tabIndexState;
+    if (this.props.location.pathname === "/") {
+      tabIndexState = 0;
+    } else {
+      if (this.props.location.pathname === "/projects") {
+        tabIndexState = 1;
+      }
+    }
     var landingBannerStyle = {
       backgroundColor: "#212121",
       width: "100%",
@@ -82,7 +91,7 @@ export default class Index extends React.Component {
             </div>
           </CardText>
         </Card>
-        <NavTabs />
+        <NavTabs history={this.props.history} location={this.props.location} tabIndexState={tabIndexState} />
       </div>
     );
   }

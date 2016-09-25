@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {StyleRoot} from 'radium';
+import {Router, Route, IndexRoute, Link} from 'react-router';
 import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks';
 import Index from '../Index/Index';
 import WorkItem from '../WorkItem/WorkItem';
@@ -23,6 +24,8 @@ export default class Core extends React.Component {
     var generalPageStyle = {
       height: "100%"
     }
+    
+    console.log("this.props Core: ", this.props);
     
     var workArr = [{
                     title: "Blackwashed.com",
@@ -59,7 +62,7 @@ export default class Core extends React.Component {
             <StyleRoot style={generalPageStyle}>
               <MuiThemeProvider>
                 <div style={generalPageStyle}>
-                  <Index />
+                  {this.props.children}
               {/*
                   <div style={workStyle}>
                     <WorkItem work={workArr[0]} />
