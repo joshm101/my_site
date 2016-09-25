@@ -3,6 +3,8 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import {Router, Route, Link} from 'react-router';
 // From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from 'react-swipeable-views';
+import WorkItem from '../WorkItem/WorkItem';
+import {Grid, Row, Col} from "react-flexbox-grid/lib";
 
 const styles = {
   headline: {
@@ -61,6 +63,24 @@ export default class NavTabs extends React.Component {
     var tabInkStyle = {
       backgroundColor: "#424242"
     }
+    
+    var gridItemStyle = {
+      alignItems: "center",
+      marginBottom: "30px"
+    }
+    
+    var gridStyle = {
+      maxWidth: 1400,
+      marginTop: 10,
+      padding: 0
+    }
+    
+    var gridWorks = this.props.works.map(work => {
+      <Col style={gridItemStyle}  xs={12} sm={6} md={5} lg={3}>
+        <WorkItem work={work} />
+      </Col>      
+    });
+    console.log(gridWorks);
     return (
       <div>
         <Tabs
@@ -88,7 +108,23 @@ export default class NavTabs extends React.Component {
             Swipe to see the next slide.<br />
           </div>
           <div style={styles.slide}>
-            slide n°2
+            <Grid fluid style={gridStyle}>
+              <Row >
+                <Col style={gridItemStyle}  xs={12} sm={6} md={6} lg={4}>
+                  <WorkItem work={this.props.works[0]} />
+                </Col> 
+                {  /*
+                <Col style={gridItemStyle}  xs={12} sm={6} md={6} lg={4}>
+                  <WorkItem work={this.props.works[1]} />
+                </Col>  
+                <Col style={gridItemStyle}  xs={12} sm={6} md={6} lg={4}>
+                  <WorkItem work={this.props.works[2]} />
+                </Col>
+                <Col style={gridItemStyle}  xs={12} sm={6} md={6} lg={4}>
+                  <WorkItem work={this.props.works[3]} />
+                </Col>   */ }                 
+              </Row>
+            </Grid>
           </div>
         </SwipeableViews>
       </div>
@@ -99,3 +135,4 @@ export default class NavTabs extends React.Component {
 NavTabs.contextTypes = {
     router: React.PropTypes.object
 }
+

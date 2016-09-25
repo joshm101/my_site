@@ -35,36 +35,57 @@ export default class WorkItem extends React.Component {
   
   render() {
     var cardStyle = {
-      width: "256px",
+      width: "320px",
       position: "relative",
-      marginLeft: "auto",
-      marginRight: "auto",
       minHeight: "350px",
-      backgroundColor: "#424242"
+      backgroundColor: "#424242",
+      marginLeft: "auto",
+      marginRight: "auto"
     };
     
     var fabStyle = {
       position: "absolute",
       right: "10px",
-      top: "123px",
+      top: "213px",
       zIndex: "10000",
       backgroundColor: "#004D40"
     }
     
     var showStyle = {
+      position: "relative",
       marginLeft: "25%",
       marginRight: "25%",
       color: "white"
     };
     
     var cardTextStyle = {
-      padding: "10px",
+      paddingLeft: 15,
+      paddingRight: 15,
+      paddingTop: 10,
+      paddingBottom: 10,
       color: "white"
     }
     
-    var textColor = {
+    
+    var workImageStyle = {
+      height: 240,
+      width: 320
+    }
+    
+    var titleStyle = {
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingLeft: 15,
+      paddingRight: 15,
       color: "white"
     };
+    
+    var cardActionsStyle = {
+      position: "relative",
+      textAlign: "center",
+      minHeight: "52px"
+    }
+    
     
     var shortDescription = "";
     
@@ -106,19 +127,21 @@ export default class WorkItem extends React.Component {
     return(
       <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={cardStyle}>
         <CardMedia>
-          <ImageSlideshow images={this.props.work.images} />
+          <img style={workImageStyle} 
+               src={this.props.work.images[0].img_src} />
+          
         </CardMedia>
       
         // this floating action button will 
         // take the user to the displayed website.
         <FloatingActionButton style={fabStyle}
                               zDepth={3}
-                              mini={true}
+                              mini={false}
                               backgroundColor="#00695C"
-                              onTouchTap={this.navigateTo.bind(this)}>
+                              href={this.props.work.workUrl}>
           <NavigationArrowForward />
         </FloatingActionButton>
-        <CardTitle className={"cardTitle"} style={textColor} title={this.props.work.title} />
+        <CardTitle className={"cardTitle"} style={titleStyle} title={this.props.work.title} />
           {this.state.longDesc === true ?
             // we have a long description so make use
             // of short description and full description
@@ -140,7 +163,7 @@ export default class WorkItem extends React.Component {
             <CardText style={cardTextStyle}>{this.props.work.description}</CardText>
 
           }
-        <CardActions>
+        <CardActions style={cardActionsStyle}>
           // Seems state starts as true even though the
           // constructor sets expanded to false. Utilizing
           // negation offer fixes for now. Need to figure out

@@ -14,14 +14,18 @@ module.exports = {
   },
   module: {
     loaders: [{
-      exclude: /node_modules/,
+      exclude: [/node_modules/, /flexboxgrid/],
       test: /\.js$/,
       loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react'],
-      include: path.join(__dirname, 'src')
+      include: [path.join(__dirname, 'src'),]
+    },
+    { test: /\.css$/,
+      loader: 'style!css?modules',
+      include: /flexboxgrid/
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.css', '.scss', '.json']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
